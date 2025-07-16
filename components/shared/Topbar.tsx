@@ -6,7 +6,7 @@ import "../../app/globals.css"
 
 const Topbar = () => {
   return (
-    <nav className="fixed top-0 z-30 flex w-full items-center justify-between bg-dark-2 px-6 py-3 text-white bg-gradient-to-r from-black via-neutral-900 to-black">
+    <nav className="fixed top-0 z-30 flex w-full items-center justify-between bg-black px-6 py-3 text-white bg-gradient-to-r from-black via-neutral-900 to-black">
       <Link className="flex items-center gap-4" href={"/"}>
         <Image src="/logo.png" alt="logo" height={28} width={28} />
         <span className="text-xl font-bold max-xs:hidden">Knit</span>
