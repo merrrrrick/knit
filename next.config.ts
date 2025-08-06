@@ -22,6 +22,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "placehold.co",
       },
+      {
+        protocol: "https", // ✅ added for utfs.io
+        hostname: "utfs.io",
+      },
     ],
   },
   typescript: {
