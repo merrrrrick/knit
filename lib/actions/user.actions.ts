@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import User from "../models/user.model";
 import { connectToDatabase } from "../mongoose";
+import Knit from "../models/knit.model";
 
 interface Params {
   userId: string;
@@ -41,12 +42,31 @@ export async function fetchUser(userId: string) {
   try {
     connectToDatabase();
 
-    return await User.findOne({ id: userId })
+    return await User.findOne({ id: userId });
     // .populate({
     //   path: "communities",
     //   model: Community,
     // });
   } catch (error: any) {
     throw new Error(`Failed to fetch user: ${error.message}`);
+  }
+}
+
+export async function fetchUserPosts(userId: string) {
+  try {
+    connectToDatabase();
+
+    const knits = await User.findOne({ id: userId }).populate({
+      path: "knits",
+      model: Knit,
+      populate: {
+        path: "children",
+        model: Knit,
+        populate: { path: "author", model: User, select: "name image id" },
+      },
+    });
+    return knits;
+  } catch (error: any) {
+    throw new Error(`Failed to fetch user posts: ${error.message}`);
   }
 }

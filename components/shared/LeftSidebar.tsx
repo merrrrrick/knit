@@ -1,22 +1,30 @@
 "use client";
-import { useClerk } from "@clerk/nextjs";
+
+import { useClerk, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { sidebarLinks } from "../../constants/index";
+import { getSidebarLinks } from "../../constants/index";
 import "../../app/globals.css";
 import { usePathname, useRouter } from "next/navigation";
-import { SignedIn, SignOutButton } from "@clerk/nextjs";
+import { SignedIn } from "@clerk/nextjs";
 import { SignOut } from "@phosphor-icons/react";
+
 const LeftSidebar = () => {
   const { signOut } = useClerk();
+  const { user } = useUser();
   const router = useRouter();
   const pathname = usePathname();
+
+  // Only generate sidebar links after user is loaded
+  if (!user) return null;
+
+  const sidebarLinks = getSidebarLinks(user.id);
 
   return (
     <section className="custom-scrollbar sticky left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r border-r-white bg-black pb-5 pt-28 max-md:hidden">
       <div className="flex w-full flex=1 flex-col gap-6 px-6">
-        {sidebarLinks.map((link) => {
+        {sidebarLinks.map((link: any) => {
           const isActive =
             (pathname.includes(link.route) && link.route.length > 1) ||
             pathname === link.route;
@@ -25,7 +33,7 @@ const LeftSidebar = () => {
               key={link.label}
               href={link.route}
               className={`relative flex justify-start gap-4 rounded-lg p-4 ${
-                isActive && "bg-purple-500"
+                isActive ? "bg-purple-500" : ""
               }`}
             >
               <Image
@@ -34,7 +42,7 @@ const LeftSidebar = () => {
                 width={24}
                 height={24}
               />
-              <span className=" text-white max-lg:hidden">{link.label}</span>
+              <span className="text-white max-lg:hidden">{link.label}</span>
             </Link>
           );
         })}

@@ -1,4 +1,4 @@
-export const sidebarLinks = [
+export const getSidebarLinks = (userId) => [
   {
     imgURL: "/assets/home.svg",
     route: "/",
@@ -26,7 +26,7 @@ export const sidebarLinks = [
   },
   {
     imgURL: "/assets/user.svg",
-    route: "/profile",
+    route: `/profile/${userId}`, // ✅ dynamic
     label: "Profile",
   },
 ];
