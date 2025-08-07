@@ -60,7 +60,7 @@ const LeftSidebar = () => {
             <div className="sbutton-overlay"></div>
             <span>
               <SignOut size={24} />
-              Logout
+              <p className="max-lg:hidden">Logout</p>
             </span>
           </button>
         </SignedIn>

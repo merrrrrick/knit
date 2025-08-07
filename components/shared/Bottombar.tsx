@@ -38,7 +38,7 @@ const Bottombar = () => {
                 width={24}
                 height={24}
               />
-              <span className="text-white text-xs">{link.label}</span>
+              <span className="text-white text-xs max-sm:hidden">{link.label}</span>
             </Link>
           );
         })}

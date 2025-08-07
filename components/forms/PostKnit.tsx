@@ -64,8 +64,8 @@ const PostKnit = ({ userId }: { userId: string }) => {
           name="knit"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Content</FormLabel>
-              <FormControl className="no-focus border border-dark-4 bg-dark-3 text-light-1">
+              <FormLabel className="text-white">Content</FormLabel>
+              <FormControl className="no-focus border border-dark-4 bg-black/70 text-white">
                 <Textarea rows={20} {...field} />
               </FormControl>
               <FormMessage />

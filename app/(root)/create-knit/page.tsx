@@ -14,7 +14,7 @@ async function Page() {
 
     return (
         <>
-        <h1 className="head-text">Create a new Knit</h1> 
+        <h1 className="font-bold text-white">Create a new Knit</h1> 
         <PostKnit userId={userInfo._id}/>
         </>
     ) 

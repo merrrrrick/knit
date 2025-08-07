@@ -26,13 +26,13 @@ export const getSidebarLinks = (userId) => [
   },
   {
     imgURL: "/assets/user.svg",
-    route: `/profile/${userId}`, // ✅ dynamic
+    route: `/profile/${userId}`,
     label: "Profile",
   },
 ];
 
 export const profileTabs = [
-  { value: "knits", label: "knits", icon: "/assets/reply.svg" },
+  { value: "knits", label: "Knits", icon: "/assets/reply.svg" },
   { value: "replies", label: "Replies", icon: "/assets/members.svg" },
   { value: "tagged", label: "Tagged", icon: "/assets/tag.svg" },
 ];

@@ -29,15 +29,15 @@ const ProfileHeader = ({
             />
           </div>
           <div className="flex-1">
-            <h1 className="text-left text-heading3-bold text-light-1">
+            <h1 className="text-left font-bold text-white">
               {name}
             </h1>
-            <p className="text-base-medium text-gray-1">@{username}</p>
+            <p className="text-base-medium text-white/50">@{username}</p>
           </div>
         </div>
       </div>
-      <p className="mt-6 max-w-lg text-base-regular text-light-2">{bio}</p>
-      <div className="mt-12 h-0.5 w-full bg-dark-3"></div>
+      <p className="mt-6 max-w-lg text-base-regular text-white/90">{bio}</p>
+      <div className="mt-12 h-0.5 w-full bg-black/70"></div>
     </div>
   );
 };

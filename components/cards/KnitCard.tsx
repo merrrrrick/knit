@@ -53,11 +53,11 @@ const KnitCard = ({
           </div>
           <div className="flex w-full flex-col">
             <Link href={`/profile/${author.id}`} className="w-fit">
-              <h4 className="cursor-pointer text-base-semibold text-light-1">
+              <h4 className="cursor-pointer font-bold text-white">
                 {author.name}
               </h4>
             </Link>
-            <p className="mt-2 text-small-regular text-light-2">{content}</p>
+            <p className="mt-2 text-small-regular text-white/90">{content}</p>
             <div className="mt-5 flex flex-col gap-3">
               <div className="flex gap-3.5">
                 <Image

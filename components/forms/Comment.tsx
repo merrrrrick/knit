@@ -71,7 +71,7 @@ const Comment = ({ knitId, currentUserImg, currentUserId }: Props) => {
                 <Input
                   type="text"
                   placeholder="Comment..."
-                  className="no-focus text-light-1 outline-none"
+                  className="no-focus text-white outline-none"
                   {...field}
                 />
               </FormControl>
