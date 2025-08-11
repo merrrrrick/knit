@@ -61,7 +61,7 @@ const KnitCard = ({
             <div className="mt-5 flex flex-col gap-3">
               <div className="flex gap-3.5">
                 <Image
-                  src="assets/heart.svg"
+                  src="/assets/heart.svg"
                   alt="heart"
                   width={24}
                   height={24}
@@ -69,7 +69,7 @@ const KnitCard = ({
                 />
                 <Link href={`/knit/${id}`}>
                   <Image
-                    src="assets/reply.svg"
+                    src="/assets/reply.svg"
                     alt="reply"
                     width={24}
                     height={24}
@@ -77,14 +77,14 @@ const KnitCard = ({
                   />
                 </Link>
                 <Image
-                  src="assets/repost.svg"
+                  src="/assets/repost.svg"
                   alt="repost"
                   width={24}
                   height={24}
                   className="cursor-pointer object-contain"
                 />
                 <Image
-                  src="assets/share.svg"
+                  src="/assets/share.svg"
                   alt="share"
                   width={24}
                   height={24}

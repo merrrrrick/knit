@@ -19,7 +19,7 @@ export async function createKnit({ text, author, communityId, path }: Params) {
     const createKnit = await Knit.create({ text, author, community: null });
 
     await User.findByIdAndUpdate(author, {
-      $push: { knit: createKnit._id },
+      $push: { knits: createKnit._id },
     });
 
     revalidatePath(path);

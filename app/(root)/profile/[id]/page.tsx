@@ -1,10 +1,9 @@
 import KnitsTab from "@/components/shared/KnitsTab";
 import ProfileHeader from "@/components/shared/ProfileHeader";
-import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { profileTabs } from "@/constants";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs/server";
-import { Tabs } from "@radix-ui/react-tabs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -29,7 +28,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
       />
 
       <div className="mt-9">
-        <Tabs defaultValue="knit" className="w-full">
+        <Tabs defaultValue="knits" className="w-full">
           <TabsList className="flex min-h-[50px] flex-1 items-center gap-3 bg-black text-white/90 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-white/90 !important">
             {profileTabs.map((tab) => (
               <TabsTrigger
