@@ -116,3 +116,33 @@ export async function addCommentToKnit(
     throw new Error(`Failed to add comment to knit: ${error.message}`);
   }
 }
+
+
+export async function likeKnit(
+  knitId: string,
+  userId: string,
+  path: string
+) {
+  connectToDatabase();
+
+  try {
+    const knit = await Knit.findById(knitId);
+    if (!knit) throw new Error("Knit not found");
+
+    // If user already liked, remove (toggle like)
+    const hasLiked = knit.likes.includes(userId);
+
+    if (hasLiked) {
+      knit.likes = knit.likes.filter((id: string) => id !== userId);
+    } else {
+      knit.likes.push(userId);
+    }
+
+    await knit.save();
+
+    revalidatePath(path);
+    return knit;
+  } catch (error: any) {
+    throw new Error(`Failed to like/unlike knit: ${error.message}`);
+  }
+}
